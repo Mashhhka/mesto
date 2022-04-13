@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>mesto</title>
+</head>
+<body class="root">
+  <header class="header">
+    <img class="header__logo" src="./images/logo.svg">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__avatar"></div>
+      <div class="profile__info">
+        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <button type="button" class="profile__edit-button"></button>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button type="button" class="profile__add-button"></button>
+    </section>
+
+    <section class="elements">
+      <div class="element">
+        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
+        <h2 class="element__title">Карачаевск</h2>
+        <button type="button" class="element__like"></button>
+      </div>
+      <div class="element">
+        <img class="element__item" src="./images/photo-1565342403875-07a8dc5ed13c.jpg" alt="Crimean landscape">
+        <h2 class="element__title">Crimean landscape</h2>
+        <button type="button" class="element__like"></button>
+      </div>
+      <div class="element">
+        <img class="element__item" src="./images/Mask Group.png" alt="Гора Эльбрус">
+        <h2 class="element__title">Гора Эльбрус</h2>
+        <button type="button" class="element__like"></button>
+      </div>
+      <div class="element">
+        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
+        <h2 class="element__title">Карачаевск</h2>
+        <button type="button" class="element__like"></button>
+      </div>
+      <div class="element">
+        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
+        <h2 class="element__title">Карачаевск</h2>
+        <button type="button" class="element__like"></button>
+      </div>
+      <div class="element">
+        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
+        <h2 class="element__title">Карачаевск</h2>
+        <button type="button" class="element__like"></button>
+      </div>
+    </section>
+
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button"></button>
+        <form class="form">
+          <h3 class="form__title">Редактировать профиль</h3>
+          <fieldset class="form__fieldset">
+            <input type="text" class="form__input-name" name="name" value="Жак-Ив Кусто">
+          </fieldset>
+          <fieldset class="form__fieldset">
+            <input type="text" class="form__input-job" name="job" value="Исследователь океана">
+          </fieldset>
+          <button type="submit" class="form__button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+     <script src="./pages/script.js"></script>
+  </main>
+  <footer class="footer">© 2022 Mesto Russia</footer>
+</body>
+</html>
