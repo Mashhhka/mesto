@@ -12,7 +12,7 @@
   </header>
   <main class="content">
     <section class="profile">
-      <div class="profile__avatar"></div>
+      <img class="profile__avatar" src="./images/Avatar.png" alt="аватар профиля">
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
         <button type="button" class="profile__edit-button"></button>
@@ -53,24 +53,23 @@
         <button type="button" class="element__like"></button>
       </div>
     </section>
-
-    <div class="popup">
-      <div class="popup__container">
-        <button class="popup__close-button"></button>
-        <form class="form">
-          <h3 class="form__title">Редактировать профиль</h3>
-          <fieldset class="form__fieldset">
-            <input type="text" class="form__input-name" name="name" value="Жак-Ив Кусто">
-          </fieldset>
-          <fieldset class="form__fieldset">
-            <input type="text" class="form__input-job" name="job" value="Исследователь океана">
-          </fieldset>
-          <button type="submit" class="form__button">Сохранить</button>
-        </form>
-      </div>
-    </div>
-     <script src="./pages/script.js"></script>
   </main>
-  <footer class="footer">© 2022 Mesto Russia</footer>
+
+  <footer>
+    <p>© 2022 Mesto Russia</p>
+  </footer>
+
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__close-button"></button>
+      <form class="form" name="profile">
+        <h3 class="form__title">Редактировать профиль</h3>
+          <input type="text" class="form__input form__input_type_user-name"" name="name" value="Жак-Ив Кусто">
+          <input type="text" class="form__input form__input_type_user-job" name="job" value="Исследователь океана">
+        <button type="submit" class="form__button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <script src="./scripts/script.js"></script>
 </body>
 </html>
