@@ -34,7 +34,7 @@
 
   <template class="elements-template">
     <li class="element">
-    <img class="element__item" src="#" alt="картинка карточки">
+    <img class="element__item" src="#" alt="#">
     <h2 class="element__title"></h2>
     <button type="button" class="element__like"></button>
     <button type="button" class="element__trash"></button>
@@ -43,7 +43,7 @@
 
   <div class="popup">
     <div class="popup__container">
-      <button type="button" class="popup__close-button"></button>
+      <button type="button" class="popup__close-button popup__close-button_profile"></button>
       <form class="form" name="profile">
         <h3 class="form__title">Редактировать профиль</h3>
           <input type="text" class="form__input form__input_type_user-name" name="name" value="Жак-Ив Кусто">
@@ -54,11 +54,11 @@
   </div>
   <div class="popup popup_add-card">
     <div class="popup__container">
-      <button type="button" class="popup__close-button"></button>
+      <button type="button" class="popup__close-button popup__close-button_card"></button>
       <form class="form form_create-card" name="new-card">
         <h3 class="form__title">Новое место</h3>
           <input type="text" class="form__input form__input_type_title-card" name="title-card" value="" placeholder="Название">
-          <input type="text" class="form__input form__input_type_link-card" name="link-card" value="" placeholder="Ссылка на картинку">
+          <input type="url" class="form__input form__input_type_link-card" name="link-card" value="" placeholder="Ссылка на картинку">
         <button type="submit" class="form__button">Создать</button>
       </form>
     </div>
@@ -67,9 +67,10 @@
     <div class="popup__image-container">
       <img class="popup__image" src="#" alt="картинка карточки">
       <h2 class="popup__image-title">Карачаево-Черкессия</h2>
-      <button type="button" class="popup__close-button"></button>
+      <button type="button" class="popup__close-button popup__close-button_preview"></button>
     </div>
   </div>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 </html>
