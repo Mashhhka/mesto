@@ -4,19 +4,19 @@ const popupPreview = document.querySelector(".popup_preview");
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const closeButton = document.querySelectorAll(".popup__close-button");
-let formElement = document.querySelector(".form");
-let formCreateCard = document.querySelector(".form_create-card");
-let nameInput = document.querySelector(".form__input_type_user-name");
-let jobInput = document.querySelector(".form__input_type_user-job");
-let linkCardInput = document.querySelector(".form__input_type_link-card");
-let titleCardInput = document.querySelector(".form__input_type_title-card");
-let formButton = document.querySelector(".form__button");
-let profileTitle = document.querySelector(".profile__title");
-let profileSubtitle = document.querySelector(".profile__subtitle");
-let CardList = document.querySelector('.card-list');
-let CardTemplate = document.querySelector('.elements-template');
-let PopupImage = document.querySelector('.popup__image');
-let PopupImageTitle = document.querySelector('.popup__image-title');
+const formElement = document.querySelector(".form");
+const formCreateCard = document.querySelector(".form_create-card");
+const nameInput = document.querySelector(".form__input_type_user-name");
+const jobInput = document.querySelector(".form__input_type_user-job");
+const linkCardInput = document.querySelector(".form__input_type_link-card");
+const titleCardInput = document.querySelector(".form__input_type_title-card");
+const formButton = document.querySelector(".form__button");
+const profileTitle = document.querySelector(".profile__title");
+const profileSubtitle = document.querySelector(".profile__subtitle");
+const CardList = document.querySelector('.card-list');
+const CardTemplate = document.querySelector('.elements-template');
+const PopupImage = document.querySelector('.popup__image');
+const PopupImageTitle = document.querySelector('.popup__image-title');
 
 
 
@@ -122,10 +122,6 @@ const handleSubmitAddCardForm = (event) => {
   popupClose(event);
 };
 
-editButton.addEventListener("click", () => popupOpen(popup));
-addButton.addEventListener("click", () => popupOpen(popupAddCard));
-
-
 function imagePopUpPreview(data) {
   PopupImage.src = data.link;
   PopupImageTitle.textContent = data.name;
@@ -136,6 +132,8 @@ closeButton.forEach((button) => {
   button.addEventListener('click', popupClose);
 });
 
+editButton.addEventListener("click", () => popupOpen(popup));
+addButton.addEventListener("click", () => popupOpen(popupAddCard));
 formElement.addEventListener("submit", formSubmitHandler);
 formCreateCard.addEventListener("submit", handleSubmitAddCardForm);
 
