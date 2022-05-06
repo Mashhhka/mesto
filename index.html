@@ -22,42 +22,24 @@
     </section>
 
     <section class="elements">
-      <div class="element">
-        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
-        <h2 class="element__title">Карачаевск</h2>
-        <button type="button" class="element__like"></button>
-      </div>
-      <div class="element">
-        <img class="element__item" src="./images/photo-1565342403875-07a8dc5ed13c.jpg" alt="Крым">
-        <h2 class="element__title">Crimean landscape</h2>
-        <button type="button" class="element__like"></button>
-      </div>
-      <div class="element">
-        <img class="element__item" src="./images/2.png" alt="Гора Эльбрус">
-        <h2 class="element__title">Гора Эльбрус</h2>
-        <button type="button" class="element__like"></button>
-      </div>
-      <div class="element">
-        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
-        <h2 class="element__title">Карачаевск</h2>
-        <button type="button" class="element__like"></button>
-      </div>
-      <div class="element">
-        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
-        <h2 class="element__title">Карачаевск</h2>
-        <button type="button" class="element__like"></button>
-      </div>
-      <div class="element">
-        <img class="element__item" src="./images/1.jpg" alt="Карачаевск">
-        <h2 class="element__title">Карачаевск</h2>
-        <button type="button" class="element__like"></button>
-      </div>
+      <ul class="card-list">
+
+      </ul>
     </section>
   </main>
 
   <footer class="footer">
     <p class="footer__copyright">© 2022 Mesto Russia</p>
   </footer>
+
+  <template class="elements-template">
+    <li class="element">
+    <img class="element__item" src="" alt="картинка карточки">
+    <h2 class="element__title"></h2>
+    <button type="button" class="element__like"></button>
+    <button type="button" class="element__trash"></button>
+  </li>
+  </template>
 
   <div class="popup">
     <div class="popup__container">
@@ -68,6 +50,24 @@
           <input type="text" class="form__input form__input_type_user-job" name="job" value="Исследователь океана">
         <button type="submit" class="form__button">Сохранить</button>
       </form>
+    </div>
+  </div>
+  <div class="popup popup_add-card">
+    <div class="popup__container">
+      <button type="button" class="popup__close-button"></button>
+      <form class="form form_create-card" name="new-card">
+        <h3 class="form__title">Новое место</h3>
+          <input type="text" class="form__input form__input_type_title-card" name="title-card" value="" placeholder="Название">
+          <input type="text" class="form__input form__input_type_link-card" name="link-card" value="" placeholder="Ссылка на картинку">
+        <button type="submit" class="form__button">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_preview">
+    <div class="popup__image-container">
+      <img class="popup__image" src="#" alt="картинка карточки">
+      <h2 class="popup__image-title">Карачаево-Черкессия</h2>
+      <button type="button" class="popup__close-button"></button>
     </div>
   </div>
   <script src="./scripts/script.js"></script>

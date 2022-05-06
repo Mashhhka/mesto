@@ -1,0 +1,8 @@
+.element_like-active {
+  background-image: url(../../../images/Union.svg);
+}
+
+.element_like-active:hover {
+  opacity: 1;
+  cursor: pointer;
+}

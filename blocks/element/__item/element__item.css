@@ -1,6 +1,7 @@
 .element__item {
   object-fit: cover;
   margin-bottom: 25px;
-  min-width: 282px;
-  max-height: 282px;
+  height: 78%;
+  width: 100%;
 }
+
