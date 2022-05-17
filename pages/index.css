@@ -21,8 +21,11 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/form/form.css);
+@import url(../blocks/form/__input/_type/form__input-error_active.css);
 @import url(../blocks/form/__button/form__button.css);
+@import url(../blocks/form/__button/_inactive/button_inactive.css);
 @import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input/_type/form__input_type_error.css);
 @import url(../blocks/form/_create-card/form_create-card.css);
 @import url(../blocks/form/__input/_type/form__input_type_user-job.css);
 @import url(../blocks/form/__input/_type/form__input_type_user-name.css);
