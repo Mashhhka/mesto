@@ -59,12 +59,12 @@ const enableValidation = () => {
     });
   };
 
-  const validationSetup = {
+  enableValidation({
     formSelector: ".form",
     inputSelector: ".form__input",
     submitButtonSelector: ".form__button",
     inactiveButtonClass: "button_inactive",
     inputErrorClass: "form__input_type_error",
     errorClass: "form__input-error_active",
-  };
-  enableValidation(validationSetupData);
+  });
+
