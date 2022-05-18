@@ -112,6 +112,7 @@ const handleSubmitAddCardForm = (event) => {
   linkCardInput.value = "";
   const buttonSubmitCard = formCreateCard.querySelector(".form__button");
   buttonSubmitCard.classList.add('button_inactive');
+  buttonSubmitCard.setAttribute('disabled', true);
   closePopUp(popupAddCard);
 
 
