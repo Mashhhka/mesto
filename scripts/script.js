@@ -22,53 +22,16 @@ const formInput = document.querySelector('.form__input');
 
 
 
-
-// Шаблоны
-
-const cardTemplate = document
-  .querySelector(".elements-template")
-  .content.querySelector(".element");
-
-// Обработчики событий
-
-const handleDeleteCard = (event) => {
-  event.target.closest('.element').remove();
-};
-
-// Генерация карточки
-
-const generateCard = (data) => {
-  const newCard = cardTemplate.cloneNode(true);
-  const linkCard = newCard.querySelector('.element__item');
-
-  const titleCard = newCard.querySelector('.element__title');
-  const cardDeleteButton = newCard.querySelector('.element__trash');
-  const cardLikeButton = newCard.querySelector(".element__like");
-
-  titleCard.textContent = data.name;
-  linkCard.src = data.link;
-  linkCard.alt = data.name;
-
-  cardLikeButton.addEventListener("click", handleToggleLike);
-  cardDeleteButton.addEventListener('click', handleDeleteCard);
-  linkCard.addEventListener("click", () => openImagePopUpPreview(data));
-
-  return newCard;
-}
-
-// Рендер карточки
-
-const renderCard = (data) => {
-  cardList.prepend(generateCard(data));
+const renderCard = (item) => {
+  const card = new Card(item,"#card");
+  const cardElement = card.generateCard();
+  cardList.prepend(cardElement);
 };
 
 initialCards.forEach((data) => {
   renderCard(data);
 });
 
-function handleToggleLike(event) {
-  event.target.closest(".element__like").classList.toggle("element_like-active");
-}
 
 function openPopUp(popup) {
   popup.classList.add("popup_opened");
@@ -118,12 +81,15 @@ const handleSubmitAddCardForm = (event) => {
 
 };
 
-function openImagePopUpPreview(data) {
-  popupImage.src = data.link;
-  popupImageTitle.textContent = data.name;
-  popupImage.alt = data.name;
+
+function openImagePopUpPreview(name, link) {
+  popupImage.src = link;
+  popupImageTitle.textContent = name;
+  popupImage.alt = name;
   openPopUp(popupPreview);
 }
+
+
 const openEditProfile = function () {
   openPopUp(popupProfile);
 	nameInput.value = profileTitle.textContent;
@@ -137,9 +103,4 @@ profileEditButton.addEventListener("click", () => openEditProfile(popupProfile))
 profileAddButton.addEventListener("click", () => openPopUp(popupAddCard));
 formProfile.addEventListener("submit", submitHandlerProfileForm);
 formCreateCard.addEventListener("submit", handleSubmitAddCardForm);
-
-
-
-
-
 
