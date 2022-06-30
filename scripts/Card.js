@@ -1,3 +1,4 @@
+import { openImagePopUpPreview } from "./script.js";
 
 const initialCards = [
   {
@@ -26,7 +27,7 @@ const initialCards = [
   }
 ];
 
-class Card {
+export class Card {
   constructor(obj, templateSelector) {
     this._name = obj.name;
     this._link = obj.link;
@@ -79,7 +80,7 @@ class Card {
 
 
 
-
+export {initialCards };
 
 
 

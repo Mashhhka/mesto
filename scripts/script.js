@@ -1,4 +1,11 @@
-const popupProfile = document.querySelector(".popup");
+import { Card } from "./Card.js";
+import { initialCards } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+import { selectors } from "./FormValidator.js";
+
+
+
+const popupProfile = document.querySelector(".popup_profile");
 const popupAddCard = document.querySelector(".popup_add-card");
 const popupPreview = document.querySelector(".popup_preview");
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -12,13 +19,12 @@ const nameInput = document.querySelector(".form__input_type_user-name");
 const jobInput = document.querySelector(".form__input_type_user-job");
 const linkCardInput = document.querySelector(".form__input_type_link-card");
 const titleCardInput = document.querySelector(".form__input_type_title-card");
-const buttonElement = document.querySelector(".form__button");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const cardList = document.querySelector('.card-list');
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__image-title');
-const formInput = document.querySelector('.form__input');
+
 
 
 
@@ -95,6 +101,13 @@ const openEditProfile = function () {
 	nameInput.value = profileTitle.textContent;
 	jobInput.value = profileSubtitle.textContent;
 }
+
+const formProfileValidate = new FormValidator(selectors, popupProfile);
+formProfileValidate.enableValidation();
+
+const formAddCardValidate = new FormValidator(selectors, popupAddCard);
+formAddCardValidate.enableValidation();
+
 popupCloseButtonProfile.addEventListener("click", () => closePopUp(popupProfile));
 popupCloseButtonCard.addEventListener("click", () => closePopUp(popupAddCard));
 popupCloseButtonPreview.addEventListener("click", () => closePopUp(popupPreview));
@@ -103,4 +116,7 @@ profileEditButton.addEventListener("click", () => openEditProfile(popupProfile))
 profileAddButton.addEventListener("click", () => openPopUp(popupAddCard));
 formProfile.addEventListener("submit", submitHandlerProfileForm);
 formCreateCard.addEventListener("submit", handleSubmitAddCardForm);
+
+export { openImagePopUpPreview };
+
 
