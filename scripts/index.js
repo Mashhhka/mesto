@@ -1,9 +1,5 @@
 import { Card } from "./Card.js";
-import { initialCards } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
-import { selectors } from "./FormValidator.js";
-
-
 
 const popupProfile = document.querySelector(".popup_profile");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -24,24 +20,65 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 const cardList = document.querySelector('.card-list');
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__image-title');
-
+const buttonSubmitCard = formCreateCard.querySelector(".form__button");
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+const selectors = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "button_inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+};
 
 
 
 const renderCard = (item) => {
   const card = new Card(item,"#card");
-  const cardElement = card.generateCard();
-  cardList.prepend(cardElement);
+  return card.generateCard()
+};
+
+
+function addNewCard(item) {
+  cardList.prepend(renderCard(item));
 };
 
 initialCards.forEach((data) => {
-  renderCard(data);
+
+  addNewCard(data);
+
 });
 
 
 function openPopUp(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('keydown', closeEsc);
+  document.addEventListener('mousedown', closeEsc);
+
 }
 
 function closePopUp(popup) {
@@ -75,14 +112,11 @@ popups.forEach((popup) => {
 
 const handleSubmitAddCardForm = (event) => {
   event.preventDefault();
-
-  renderCard({ name: titleCardInput.value, link: linkCardInput.value });
-  titleCardInput.value = "";
-  linkCardInput.value = "";
-  const buttonSubmitCard = formCreateCard.querySelector(".form__button");
-  buttonSubmitCard.classList.add('button_inactive');
-  buttonSubmitCard.setAttribute('disabled', true);
+  addNewCard({ name: titleCardInput.value, link: linkCardInput.value });
   closePopUp(popupAddCard);
+  formCreateCard.reset();
+  formAddCardValidate.restartFormValidation();
+
 
 
 };

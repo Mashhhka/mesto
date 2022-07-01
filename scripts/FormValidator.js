@@ -1,17 +1,11 @@
-const selectors = {
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__button",
-  inactiveButtonClass: "button_inactive",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active",
-};
+
 
 export class FormValidator {
   constructor(selectors, formElement) {
     this._selectors = selectors;
     this._submitButton = formElement.querySelector(selectors.submitButtonSelector);
     this._formElement = formElement;
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._selectors.inputSelector));
   };
 
 _showInputError = (inputElement, errorMessage) => {
@@ -38,24 +32,24 @@ _checkInputValidity = (inputElement) => {
 };
 
 _setEventListeners() {
-  const inputList = Array.from(this._formElement.querySelectorAll(this._selectors.inputSelector));
-  this._toggleButtonState(inputList);
-  inputList.forEach((inputElement) => {
+
+  this.toggleButtonState(this._inputList);
+  this._inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       this._checkInputValidity(inputElement);
-      this._toggleButtonState(inputList);
+      this.toggleButtonState(this._inputList);
     });
   });
 };
 
 
-  _hasInvalidInput(inputList) {
-    return inputList.some(input => !input.validity.valid)
+  _hasInvalidInput(_inputList) {
+    return this._inputList.some(input => !input.validity.valid)
   };
 
 
-  _toggleButtonState(inputList) {
-    if (this._hasInvalidInput(inputList)) {
+  toggleButtonState = (_inputList) => {
+    if (this._hasInvalidInput(_inputList)) {
       this._submitButton.classList.add(this._selectors.inactiveButtonClass);
       this._submitButton.setAttribute("disabled", true);
     } else {
@@ -64,9 +58,18 @@ _setEventListeners() {
     }
   };
 
-enableValidation() {
-  this._setEventListeners();
-};
 
-};
-export {selectors };
+
+  enableValidation() {
+    this._setEventListeners();
+  }
+
+  //Функция сброса ошибок
+  restartFormValidation() {
+    this.toggleButtonState(this._inputList);
+
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+  }
+}

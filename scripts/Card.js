@@ -1,31 +1,4 @@
-import { openImagePopUpPreview } from "./script.js";
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import { openImagePopUpPreview } from "./index.js";
 
 export class Card {
   constructor(obj, templateSelector) {
@@ -51,6 +24,7 @@ export class Card {
     // Добавим данные
     this._element.querySelector('.element__item').src = this._link;
     this._element.querySelector('.element__title').textContent = this._name;
+    this._element.querySelector('.element__title').alt = this._name;
 
     // Вернём элемент наружу
     return this._element;
@@ -80,7 +54,7 @@ export class Card {
 
 
 
-export {initialCards };
+
 
 
 
