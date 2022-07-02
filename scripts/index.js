@@ -77,7 +77,7 @@ initialCards.forEach((data) => {
 
 function openPopUp(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('mousedown', closeEsc);
+  document.addEventListener('keydown', closeEsc);
 
 }
 

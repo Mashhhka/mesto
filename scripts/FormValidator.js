@@ -33,23 +33,23 @@ _checkInputValidity = (inputElement) => {
 
 _setEventListeners() {
 
-  this.toggleButtonState(this._inputList);
+  this.toggleButtonState();
   this._inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       this._checkInputValidity(inputElement);
-      this.toggleButtonState(this._inputList);
+      this.toggleButtonState();
     });
   });
 };
 
 
-  _hasInvalidInput(_inputList) {
+  _hasInvalidInput() {
     return this._inputList.some(input => !input.validity.valid)
   };
 
 
-  toggleButtonState = (_inputList) => {
-    if (this._hasInvalidInput(_inputList)) {
+  toggleButtonState = () => {
+    if (this._hasInvalidInput()) {
       this._submitButton.classList.add(this._selectors.inactiveButtonClass);
       this._submitButton.setAttribute("disabled", true);
     } else {
