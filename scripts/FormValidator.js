@@ -66,7 +66,7 @@ _setEventListeners() {
 
   //Функция сброса ошибок
   restartFormValidation() {
-    this.toggleButtonState(this._inputList);
+    this.toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
